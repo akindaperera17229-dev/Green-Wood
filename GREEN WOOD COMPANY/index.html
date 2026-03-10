@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Wood - Gems, Tea & Tourism</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #1a4b8c;
+            --dark-blue: #0f2d56;
+            --light-blue: #4ddb34;
+            --sky-blue: #87eb8e;
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --light-gray: #1294f85b;
+            --text-dark: #000000;
+            --text-light: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-light {
+            background: var(--sky-blue);
+            color: var(--text-dark);
+        }
+        
+        .btn-light:hover {
+            background: var(--light-blue);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--light-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--sky-blue);
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(15, 45, 86, 0.5), rgba(0, 0, 0, 0.5)), url('sunset.jpg');
+            background-size: cover;
+            background-position:center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding: 20px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            color: #17ff0f;
+        }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: var(--sky-blue);
+            margin-right: 10px;
+        }
+       
+        .logo i {
+            color: var(--sky-blue);
+            margin-right: 10px;
+        }
+        
+        .logo span {
+            color: var(--white);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--sky-blue);
+        }
+        
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--sky-blue);
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(rgb(255, 255, 255), rgba(26, 223, 0, 0.352));
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Services Section */
+        .services {
+            background: linear-gradient(to bottom, var(--off-white), var(--light-gray));
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border: 5px solid var(--light-gray);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        /* Tours Section */
+        .tour-highlight {
+            background: linear-gradient(rgba(15, 45, 86, 0.85), rgba(15, 45, 86, 0.85)), url('beach.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .itinerary {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: var(--text-dark);
+        }
+        
+        .day {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--text-dark);
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        
+        .day:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .day-image {
+            flex: 0 0 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        
+        .day-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .day-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .day-content {
+            flex: 1;
+        }
+        
+        .day h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        /* Zigzag layout for tour days */
+        .day:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .day:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+        .day:nth-child(odd),
+        .day:nth-child(even) {
+            flex-direction: column;
+             }
+        }
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--off-white);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--text-dark);
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            font-size: 60px;
+            color: var(--sky-blue);
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            opacity: 0.2;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 2px solid var(--sky-blue);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-detail i {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--sky-blue);
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--sky-blue);
+        }
+        
+        .footer-column p,
+        .footer-column a {
+            color: #ccc;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: var(--sky-blue);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--sky-blue);
+            color: var(--dark-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .day {
+                flex-direction: column;
+            }
+            
+            .day-image {
+                flex: 1;
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logo.jpg" alt="logo">
+                    <span>Green</span> Wood
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#tours">Tours</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <h1>Experience the Best of Sri Lanka</h1>
+                <p>Gems, Tea & Tourism - Tradition, Trust & True Sri Lankan Excellence Since 1998</p>
+                <div>
+                    <a href="#contact" class="btn">Contact Us</a>
+                    <a href="#tours" class="btn btn-light">Explore Tours</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Green Wood</h2>
+                <p><b>Discover our rich heritage and commitment to authentic Sri Lankan experiences</b></p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Tradition, Trust & True Sri Lankan Excellence Since 1998</h3>
+                    <p>We are Green Wood – a proudly Sri Lankan company with deep roots in traditional gem mining and Ceylon tea plantations. With over 25 years of experience, we now offer a unique blend of authentic gemstones, premium tea, and educational + fun tourism under one trusted brand.</p>
+                    <p>We are not just sellers — we are producers and experts with real roots in each industry. Focused on the Russian market, offering personalized service and trustworthy partnerships. 100% genuine, ethical, and Sri Lankan-owned.</p>
+                    <a href="#contact" class="btn">Get In Touch</a>
+                </div>
+                <div class="about-image">
+                    <img src="elephant1.jpg" alt="Sri Lanka Landscape">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p><b>Discover our unique offerings that showcase the best of Sri Lanka</b></p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="gems.jpg" alt="Sri Lankan Gems">
+                    </div>
+                    <div class="service-content">
+                        <h3>Sri Lankan Gems</h3>
+                        <p>Mined by generations of traditional gem miners, ethically and expertly. Discover our collection of authentic precious stones including sapphires, rubies, and more.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="teapluck.jpg" alt="Ceylon Tea">
+                    </div>
+                    <div class="service-content">
+                        <h3>Premium Ceylon Tea</h3>
+                        <p>Grown and handpicked from our own tea estates, exported with top-grade quality assurance. Experience the finest tea Sri Lanka has to offer.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="slflag.jpg" alt="Sri Lankan Tourism">
+                    </div>
+                    <div class="service-content">
+                        <h3>Genuine Sri Lankan Tourism</h3>
+                        <p>A curated blend of education and fun, offering unforgettable cultural and natural experiences. Explore Sri Lanka while discovering gems and sipping the world's finest tea.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours" class="tour-highlight">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Tour</h2>
+                <p style="color: #f8f9fa;"><b>10 Days of Culture, Nature, Adventure & Beach Relaxation</b></p>
+            </div>
+            
+            <div class="itinerary">
+                <div class="day">
+                    <div class="day-image">
+                        <img src="sigiriya.jpg">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 01 – Arrival → Pidurangala Sunset → Sigiriya</h3>
+                        <p style="font-size: 18px;">Arrival at Bandaranaike International Airport. Rest at Airport Garden Hotel (Katunayake). Sunset hike at Pidurangala Rock. Overnight in Sigiriya.</p>
+                        <p class="caption">Katunayake ➝ Pidurangala – 146 km / 3.5 hrs</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="pinnawala.jpg">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 02 – Sigiriya → Pinnawala → Kandy</h3>
+                        <p style="font-size: 18px;">Sigiriya Lion Rock climb. Pinnawala Elephant watching + Lunch. Transfer to Kandy, Dinner & Overnight stay.</p>
+                        <p class="caption">Sigiriya ➝ Pinnawala – 91 km / 2 hrs. Pinnawala ➝ Kandy – 41 km / 1 hrs.</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="ninearch.jpg" alt="Temple of the Tooth">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 03 – Kandy → Nuwara Eliya → Ella</h3>
+                        <p style="font-size: 18px;">Temple of the Tooth, Royal Botanical Garden (2 hrs). Tea Factory, Ramboda Falls, Scenic train ride. Visit Nine Arch Bridge. Overnight in Ella.</p>
+                        <p class="caption">Kandy ➝ Nanu Oya – 77 km / 2.5 hrs. Nanu Oya ➝ Ella (Train) – 60 km / 3 hrs</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="hiking.jpg" alt="Ella Hiking">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 04 – Ella Hiking & Relaxation</h3>
+                        <p style="font-size: 18px;">Full-day trekking & nature exploring in Ella. Overnight in Ella.</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="safari.jpg" alt="Udawalawe Safari">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 05 – Ella → Udawalawa → Ratnapura</h3>
+                        <p style="font-size: 18px;">Udawalawe Safari & Elephant feeding. Coconut Land & Factory. Overnight in Ratnapura.</p>
+                        <p class="caption">Ella ➝ Udawalawa – 90 km / 2.5 hrs. Udawalawe ➝ Ratnapura – 107 km / 3 hrs</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="cinnamon.jpg" alt="Cinnamon Factory">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 06 – Ratnapura → Hikkaduwa</h3>
+                        <p style="font-size: 18px;">Cinnamon Factory & Ambalangoda Mask Village. Overnight in Hikkaduwa.</p>
+                        <p class="caption">138 km / 3.5 hrs</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="turtle.jpg" alt="Turtle Watching">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 07 – Hikkaduwa Exploration</h3>
+                        <p style="font-size: 18px;">Turtle Watching. Coral Reef Exploration. Overnight in Hikkaduwa.</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="surfers.jpg" alt="Whale Watching">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 08 – Hikkaduwa Adventure</h3>
+                        <p style="font-size: 18px;">Whale Watching. Surfing & Beach Leisure. Overnight in Hikkaduwa.</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="cartride.jpg" alt="Village Experience">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 09 – Hikkaduwa Leisure Day</h3>
+                        <p style="font-size: 18px;">Village Experience & Beach Relaxation. Overnight in Hikkaduwa.</p>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-image">
+                        <img src="lotustower.jpg" alt="Colombo City">
+                    </div>
+                    <div class="day-content">
+                        <h3>Day 10 – Hikkaduwa → Colombo Departure</h3>
+                        <p style="font-size: 18px;">Colombo City Tour (Lotus Tower, Shopping at Laksala). Farewell Dinner. Departure.</p>
+                        <p class="caption">116 km / 2.5 hrs</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="#contact" class="btn">Book This Tour</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Authentic experiences from travelers who explored Sri Lanka with us</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The gem mining tour was absolutely fascinating! Seeing the process from mine to finished gemstone was a unique experience I'll never forget.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client">
+                        </div>
+                        <div>
+                            <h4>Elena Petrova</h4>
+                            <p>Russia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The tea plantation visit was the highlight of our trip. The scenery was breathtaking, and tasting fresh tea right where it's grown was incredible.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                        </div>
+                        <div>
+                            <h4>Dmitri Ivanov</h4>
+                            <p>Russia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Green Wood provided the perfect blend of education and relaxation. We learned so much about Sri Lankan culture while enjoying beautiful beaches and nature.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client">
+                        </div>
+                        <div>
+                            <h4>Anna Smirnova</h4>
+                            <p>Russia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to start planning your Sri Lankan adventure</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p>+94 77 254 1909</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p>1998greenwood@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <p>Sri Lanka</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Green Wood</h3>
+                    <p>Tradition, Trust & True Sri Lankan Excellence Since 1998. Offering authentic gems, premium tea, and unforgettable tourism experiences.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#about">About Us</a>
+                    <a href="#services">Our Services</a>
+                    <a href="#tours">Tour Packages</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <a href="#">Sri Lankan Gems</a>
+                    <a href="#">Ceylon Tea</a>
+                    <a href="#">Cultural Tours</a>
+                    <a href="#">Adventure Tours</a>
+                    <a href="#">Custom Packages</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-phone"></i> +94 77 254 1909</p>
+                    <p><i class="fas fa-envelope"></i> 1998greenwood@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Sri Lanka</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Green Wood. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Your HTML code remains exactly the same until the script section -->
+
+    <script>
+        // WhatsApp and Email Integration
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                // Send to WhatsApp
+                const phoneNumber = "94772541909"; // Your WhatsApp number
+                const whatsappMessage = `New Contact Form Submission:%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+                
+                // Send to Email (using Formspree)
+                const formData = new FormData();
+                formData.append('name', name);
+                formData.append('email', email);
+                formData.append('message', message);
+                
+                // Send to Formspree (email service)
+                fetch('https://formspree.io/f/mdklrypv', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Open WhatsApp after successful email submission
+                        window.open(whatsappUrl, '_blank');
+                        alert('Thank you for your message! We will get back to you soon.');
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Sorry, there was an error sending your message. Please try again later.');
+                });
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    
+</body>
+</html>
